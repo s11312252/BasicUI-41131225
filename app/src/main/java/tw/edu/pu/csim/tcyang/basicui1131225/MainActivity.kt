@@ -53,14 +53,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Main(modifier: Modifier = Modifier) {
     var Animals = listOf(
-        R.drawable.animal0, R.drawable.animal1,
-        R.drawable.animal2, R.drawable.animal3,
-        R.drawable.animal4, R.drawable.animal5,
-        R.drawable.animal6, R.drawable.animal7,
-        R.drawable.animal8, R.drawable.animal9
+        R.drawable.cat, R.drawable.paw, R.drawable.paws,
+        R.drawable.bone, R.drawable.cats,
     )
-    var AnimalsName = arrayListOf("鴨子","企鵝",
-        "青蛙","貓頭鷹","海豚", "牛", "無尾熊", "獅子", "狐狸", "小雞")
+    var AnimalsName = arrayListOf("a","b",
+        "c","d","e")
 
 
     Column(
