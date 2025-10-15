@@ -75,6 +75,7 @@ fun Main(modifier: Modifier = Modifier) {
         )
         Spacer(modifier = Modifier.size(10.dp))
 
+
         Row {
             Image(
                 painter = painterResource(id = R.drawable.cat),
