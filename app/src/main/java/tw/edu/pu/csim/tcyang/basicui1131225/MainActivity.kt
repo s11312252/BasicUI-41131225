@@ -46,7 +46,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @Composable
 fun Main(modifier: Modifier = Modifier) {
     val animals = listOf(  // 用 val + 小寫
@@ -113,4 +112,3 @@ fun Main(modifier: Modifier = Modifier) {
 
     }
 }
-
