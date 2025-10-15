@@ -1,6 +1,5 @@
 package tw.edu.pu.csim.tcyang.basicui1131225
 
-import android.R.attr.text
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,10 +28,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp // <-- 確保有這個 import
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import tw.edu.pu.csim.tcyang.basicui1131225.ui.theme.BasicUI1131225Theme
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,6 @@ class MainActivity : ComponentActivity() {
             BasicUI1131225Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Main(
-                        // 將 Scaffold 的邊距傳遞給 Main  composable
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -49,16 +46,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @Composable
 fun Main(modifier: Modifier = Modifier) {
-    var Animals = listOf(
+    val animals = listOf(  // 用 val + 小寫
         R.drawable.cat, R.drawable.paw, R.drawable.paws,
-        R.drawable.bone, R.drawable.cats,
+        R.drawable.bone, R.drawable.cats
     )
-    var AnimalsName = arrayListOf("a","b",
-        "c","d","e")
-
+    val animalsName = listOf("a", "b", "c", "d", "e")  // 改成 listOf，確保 5 個
 
     Column(
         modifier = modifier
@@ -66,8 +60,7 @@ fun Main(modifier: Modifier = Modifier) {
             .background(Color(0x8aE0BBE4)),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
-    )
-    {
+    ) {
         Text(
             text = stringResource(R.string.app_title),
             fontSize = 25.sp,
@@ -79,17 +72,17 @@ fun Main(modifier: Modifier = Modifier) {
             fontSize = 20.sp,
             color = Color(0xFF654321)
         )
-
         Spacer(modifier = Modifier.size(10.dp))
+
         Row {
             Image(
-                painter = painterResource(id = R.drawable.android),
+                painter = painterResource(id = R.drawable.cat),
                 contentDescription = "Android icon",
                 modifier = Modifier
                     .size(100.dp)
                     .clip(CircleShape)
                     .background(Color.Yellow),
-                alpha = 0.6f,
+                alpha = 0.6f
             )
             Image(
                 painter = painterResource(id = R.drawable.compose),
@@ -103,11 +96,11 @@ fun Main(modifier: Modifier = Modifier) {
             )
         }
         LazyRow {
-            items(51) { index ->
-                Text(text = AnimalsName[index % 10])
+            items(count = 21) { index ->
+                Text(text = animalsName[index % 5])
                 Text(text = "$index")
                 Image(
-                    painter = painterResource(id = Animals[index % 10]),
+                    painter = painterResource(id = animals[index % 5]),
                     contentDescription = "可愛動物圖片",
                     modifier = Modifier.size(60.dp)
                 )
@@ -117,10 +110,6 @@ fun Main(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.size(10.dp))
 
-        }
-        for (i in 0..51) {
-            Text(text = i.toString())
-        }
     }
-
+}
 
